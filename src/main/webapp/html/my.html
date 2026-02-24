@@ -1,11 +1,95 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8" />
     <title>RPG</title>
-    <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
-    <link href="/css/my.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/my.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="UTF-8"></script>
 </head>
+
 <body>
+<div id="toast" class="toast hidden"></div>
+
 <h1>RPG admin panel</h1>
 
+<table id="playersTable">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Race</th>
+        <th>Profession</th>
+        <th>Level</th>
+        <th>Birthday</th>
+        <th>Banned</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="playersTbody"></tbody>
+</table>
+
+<div id="pagingControls">
+    <span>Page size:</span>
+    <select id="pageSize">
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+</div>
+
+<div id="pagination"></div>
+
+<hr class="section-sep">
+<h2 class="section-title">Создать новый аккаунт</h2>
+
+<div id="createSection">
+    <form id="createForm">
+        <label class="f">
+            <span class="fl">Name</span>
+            <input id="createName" type="text" minlength="1" maxlength="12" required>
+        </label>
+
+        <label class="f">
+            <span class="fl">Title</span>
+            <input id="createTitle" type="text" minlength="1" maxlength="30" required>
+        </label>
+
+        <label class="f">
+            <span class="fl">Race</span>
+            <select id="createRace"></select>
+        </label>
+
+        <label class="f">
+            <span class="fl">Profession</span>
+            <select id="createProfession"></select>
+        </label>
+
+        <label class="f">
+            <span class="fl">Level</span>
+            <input id="createLevel" type="number" min="0" max="100" value="1" required>
+        </label>
+
+        <label class="f">
+            <span class="fl">Birthday</span>
+            <input id="createBirthday" type="date" required>
+        </label>
+
+        <label class="f f-inline">
+            <span class="fl">Banned</span>
+            <input id="createBanned" type="checkbox">
+        </label>
+
+        <button id="createBtn" type="submit">Create</button>
+
+        <div id="createError" class="form-error"></div>
+    </form>
+
+    <div id="createHint" class="hint">Подсказка: Name 1..12, Title 1..30, Level 0..100</div>
+</div>
+
+<script src="/js/my.js" charset="UTF-8"></script>
 </body>
 </html>
